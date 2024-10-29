@@ -17,9 +17,10 @@ def perform_sum():
 
     bin1, bin2 = input_value.split('+')
     
-    if len(bin1) < 2 or len(bin2) < 1 or not all(c in '01' for c in bin1 + bin2):
-        messagebox.showerror("Error", "Entrada inválida: los números deben ser binarios y tener al menos 2 y 1 bits respectivamente")
+    if len(bin1) < 2 or not bin1.startswith("10") or len(bin2) < 1 or not all(c in '01' for c in bin1 + bin2):
+        messagebox.showerror("Error", "Entrada inválida: el primer número debe iniciar con '10' y ambos deben ser binarios")
         return
+
     
     result = binary_sum(bin1, bin2) + "="
     
